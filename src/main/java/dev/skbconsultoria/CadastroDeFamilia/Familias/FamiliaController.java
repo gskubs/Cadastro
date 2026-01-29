@@ -1,4 +1,4 @@
-package dev.skbconsultoria.CadastroDeFamilia;
+package dev.skbconsultoria.CadastroDeFamilia.Familias;
 
 import org.springframework.web.bind.annotation.*;
 

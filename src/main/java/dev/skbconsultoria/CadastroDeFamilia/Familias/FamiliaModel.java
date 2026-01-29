@@ -1,6 +1,10 @@
-package dev.skbconsultoria.CadastroDeFamilia;
+package dev.skbconsultoria.CadastroDeFamilia.Familias;
 
+import dev.skbconsultoria.CadastroDeFamilia.Trabalhos.TrabalhoModel;
 import jakarta.persistence.*;
+import org.hibernate.annotations.ManyToAny;
+
+import java.util.List;
 
 //Entity transforma uma classe em uma entidade do Banco de Dados
 //JPA Java persistence API, esse jakarta persistence, vem tudo do JPA que baixamos no Spring
@@ -16,13 +20,19 @@ public class FamiliaModel {
     private String email;
     private int idade;
 
+    //@ManyToOne um familiar tem apenas uma unica tarefa, usamos sempre no elemento que vc for precisar.
+    @ManyToOne
+    @JoinColumn(name = "trabalho_id") // Foreing Key, ou chave estrangeira
+    private TrabalhoModel trabalho;
+
     public FamiliaModel() {
     }
 
-    public FamiliaModel(String nome, String email, int idade) {
+    public FamiliaModel(String nome, String email, int idade, TrabalhoModel trabalho) {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
+        this.trabalho = trabalho;
     }
 
     public String getNome() {
@@ -49,5 +59,11 @@ public class FamiliaModel {
         this.idade = idade;
     }
 
+    public TrabalhoModel getTrabalho() {
+        return trabalho;
+    }
 
+    public void setTrabalho(TrabalhoModel trabalho) {
+        this.trabalho = trabalho;
+    }
 }
