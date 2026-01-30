@@ -21,10 +21,16 @@ public class FamiliaModel {
     //passar o @ID para gerar o numero de identif de cada membro, e o GenerateValue para gerar os dados infinitamente.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private long id;
+
+    @Column(name = "nome")
     private String nome;
+
     @Column(unique = true)//Falando que a coluna do e-mail é unica, não pode haver 2 e-mails iguais.
     private String email;
+
+    @Column(name = "idade")
     private int idade;
 
     //@ManyToOne um familiar tem apenas uma unica tarefa, usamos sempre no elemento que vc for precisar.
