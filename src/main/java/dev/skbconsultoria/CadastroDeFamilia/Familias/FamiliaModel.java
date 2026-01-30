@@ -23,6 +23,7 @@ public class FamiliaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    @Column(unique = true)//Falando que a coluna do e-mail é unica, não pode haver 2 e-mails iguais.
     private String email;
     private int idade;
 
