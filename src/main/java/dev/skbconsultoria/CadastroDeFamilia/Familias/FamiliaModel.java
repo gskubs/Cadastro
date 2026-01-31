@@ -18,6 +18,7 @@ import java.util.List;
 @Data //Ele ja cria automaticamente os getters e setters automaticamente de forma oculta graças ao Lombok
 public class FamiliaModel {
 
+
     //passar o @ID para gerar o numero de identif de cada membro, e o GenerateValue para gerar os dados infinitamente.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +39,5 @@ public class FamiliaModel {
     @ManyToOne
     @JoinColumn(name = "trabalho_id") // Foreing Key, ou chave estrangeira
     private TrabalhoModel trabalho;
-
 
 }
